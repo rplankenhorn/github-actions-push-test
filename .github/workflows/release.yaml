@@ -1,8 +1,5 @@
 on:
   create:
-  push:
-    tags:
-      - "*"
 
 
 jobs:
