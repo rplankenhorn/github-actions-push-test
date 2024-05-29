@@ -8,6 +8,10 @@ on:
 jobs:
   placeholder:
     name: Placeholder
+    if: >-
+      (github.event_name == 'create' &&
+       startsWith(github.ref, 'refs/tags/')) ||
+       github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
       - name: Print Context
