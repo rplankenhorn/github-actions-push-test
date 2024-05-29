@@ -1,0 +1,20 @@
+on:
+  push:
+    tags:
+      - "*"
+
+
+jobs:
+  placeholder:
+    name: Placeholder
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Context
+        run: |
+          echo "${{ toJson(github.event) }}"
+      - name: Get Version
+        id: get_version
+        uses: actions/github-script@v7
+        with:
+          script: |
+            console.log(`context: ${context}`);
